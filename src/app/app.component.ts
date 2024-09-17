@@ -10,6 +10,7 @@ import {Football} from "./Shared/Models/Football";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  title = "Assignment 2 Football- Anish Chaudhary";
 
   football1: Football = {playerName:"Messi", playerPosition:"SecondStriker",playerJerseyNumber:10,playerAge:37,isplayertrophies: true};
   football2: Football = {playerName:"Ronaldo", playerPosition:"CentreForward",playerJerseyNumber:7,playerAge:39,isplayertrophies: true};
