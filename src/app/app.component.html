@@ -1,4 +1,10 @@
-<h1>Hello, {{ title }}</h1>
-<h1>Best PC game is {{ game }}</h1>
-<h1>My favourite game is {{ sports }}</h1>
-
+<div class="container">
+  <h2>Football List</h2>
+  <div *ngFor="let football of footballlist" class="user-card">
+    <h3>{{football.playerName}}</h3>
+    <p>Position: {{football.playerPosition}}</p>
+    <p>Jersey Number: {{football.playerJerseyNumber}}</p>
+    <p>Age: {{football.playerAge}}</p>
+    <p>Player Trophies: {{ football.isplayertrophies ? 'Yes' : 'No' }}</p>
+  </div>
+</div>
