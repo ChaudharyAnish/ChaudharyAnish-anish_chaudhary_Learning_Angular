@@ -1,12 +1,10 @@
-<app-football-list-item>
-  {{footballlist[0].playerName}}
-</app-football-list-item>
-<app-football-list-item>
-  {{footballlist[1].playerPosition}}
-</app-football-list-item>
-<app-football-list-item>
-  {{footballlist[2].playerJerseyNumber}}
-</app-football-list-item>
-<app-football-list-item>
-  {{footballlist[3].playerAge}}
-</app-football-list-item>
+<div class="container">
+  <h1>Football List</h1>
+  <div *ngFor="let football of footballlist" class="user-card">
+    <h2>{{football.playerName}}</h2>
+    <p>Position: {{football.playerPosition}}</p>
+    <p>Jersey Number: {{football.playerJerseyNumber}}</p>
+    <p>Age: {{football.playerAge}}</p>
+    <p>Player Trophies: {{ football.isplayertrophies ? 'Yes' : 'No' }}</p>
+  </div>
+</div>
