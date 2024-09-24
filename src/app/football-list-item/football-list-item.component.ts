@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Football} from "../Shared/Models/Football";
 
 @Component({
   selector: 'app-football-list-item',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './football-list-item.component.css'
 })
 export class FootballListItemComponent {
+  @Input() football?: Football;
 
 }
