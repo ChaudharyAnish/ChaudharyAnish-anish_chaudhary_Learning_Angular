@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Football List</h1>
-  <div *ngFor="let football of footballlist">
+  <div *ngFor="let football of footballlist" [ngClass]="football.bgClass">
     <h2>{{ football.playerName }}</h2>
     <p>Position: {{football.playerPosition}}</p>
     <p>Jersey Number: {{football.playerJerseyNumber}}</p>
