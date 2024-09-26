@@ -1,4 +1,8 @@
-.football-list{
+:host {
+  display: block;
+  width: 110%;
+}
+.container{
   border : 2px;
 }
 

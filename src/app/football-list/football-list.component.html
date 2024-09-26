@@ -1,10 +1,12 @@
-<div class="container">
-  <h1>Football List</h1>
-  <div *ngFor="let football of footballlist" [ngClass]="football.bgClass">
-    <h2>{{ football.playerName }}</h2>
-    <p>Position: {{football.playerPosition}}</p>
-    <p>Jersey Number: {{football.playerJerseyNumber}}</p>
-    <p>Age: {{football.playerAge}}</p>
-    <p>Player Trophies: {{ football.isplayertrophies ? 'Yes' : 'No' }}</p>
-  </div>
-</div>
+<body>
+<table>
+  <tbody>
+  <tr *ngFor="let football of footballlist; let i= index">
+
+    <td colspan ="5">
+      <app-football-list-item [football]="football" [ngClass]="{'pink':i%2==0,'teal':i%2!=0 }"></app-football-list-item>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
