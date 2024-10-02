@@ -1,13 +1,24 @@
-<body>
-<table>
-  <tbody>
-  <tr *ngFor="let football of footballs">
+<div class="container">
+  <h2>Football List Components</h2>
+  <table>
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>JerseyNumber</th>
+    <th>Age</th>
+    <th>Trophies</th>
+    </tr>
+    </thead>
+    <tbody>
+  <tr *ngFor="let football of footballs" (click)="selectFootball(football)">
     <td>{{football.playerName}}</td>
     <td>{{football.playerPosition}}</td>
     <td>{{football.playerJerseyNumber}}</td>
     <td>{{football.playerAge}}</td>
     <td>{{football.isplayertrophies ? 'Yes' : 'No'}}</td>
   </tr>
-  </tbody>
+    </tbody>
 </table>
-</body>
+  <app-football-list-item [footballs]="selectedFootball"></app-football-list-item>
+</div>

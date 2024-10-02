@@ -1,9 +1,8 @@
-
-<h1>Football List</h1>
-  <div *ngIf="football" class ="container" >
-    <h2>{{ football.playerName }}</h2>
-    <p>Position: {{football.playerPosition}}</p>
-    <p>Jersey Number: {{football.playerJerseyNumber}}</p>
-    <p>Age: {{football.playerAge}}</p>
-    <p>Player Trophies: {{ football.isplayertrophies ? 'Yes' : 'No' }}</p>
-  </div>
+<div *ngIf="footballs" class ="Football-list-item" >
+  <h2>Football List</h2>
+    <p>{{ footballs.playerName }}</p>
+    <p>Position: {{footballs.playerPosition}}</p>
+    <p>Jersey Number: {{footballs.playerJerseyNumber}}</p>
+    <p>Age: {{footballs.playerAge}}</p>
+    <p>Player Trophies: {{ footballs.isplayertrophies ? 'Yes' : 'No' }}</p>
+</div>

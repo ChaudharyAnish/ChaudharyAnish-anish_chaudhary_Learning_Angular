@@ -34,4 +34,9 @@ export class FootballService {
     const football = this.footballList.find(foot => foot.playerName === readplayerName);
     return of(football);
   }
+  selectedFootball?: Football;
+  selectFootball(football:Football):void{
+    this.selectedFootball = football;
+  }
 }
+
