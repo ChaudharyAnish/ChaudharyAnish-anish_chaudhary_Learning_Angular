@@ -3,11 +3,12 @@ import {Football} from "../Shared/Models/Football";
 import {FootballListItemComponent} from "../football-list-item/football-list-item.component";
 import {NgForOf} from "@angular/common";
 import {FootballService} from "../Services/football.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-football-list',
   standalone: true,
-  imports: [NgForOf, FootballListItemComponent,
+  imports: [NgForOf, FootballListItemComponent, RouterLink,
   ],
   templateUrl: './football-list.component.html',
   styleUrl: './football-list.component.css'

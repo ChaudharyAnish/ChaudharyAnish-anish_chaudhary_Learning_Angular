@@ -1,2 +1,10 @@
-<app-football-list-item></app-football-list-item>
-<app-football-list></app-football-list>
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/footballs" routerLinkActive="active">Football List</a>
+    <a routerLink="/modify-list-item" routerLinkActive="active">Modify Football</a>
+  </nav>
+</div>
+<div class="container">
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
+</div>

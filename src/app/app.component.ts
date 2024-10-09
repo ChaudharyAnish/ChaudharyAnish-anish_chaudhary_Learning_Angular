@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {JsonPipe, NgForOf} from "@angular/common";
 import {Football} from "./Shared/Models/Football";
 import {FootballListComponent} from "./football-list/football-list.component";
@@ -8,7 +8,7 @@ import {FootballService} from "./Services/football.service";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, FootballListComponent, FootballListItemComponent],
+  imports: [RouterOutlet, NgForOf, JsonPipe, FootballListComponent, FootballListItemComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
