@@ -1,1 +1,38 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="footballForm" (ngSubmit)= "onSubmit()">
+
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="number" id="id" formControlName="id"/>
+    </div>
+
+    <div class="form-group">
+      <label for="playerName">playerName</label>
+      <input type="text" id="playerName" formControlName="playerName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="playerPosition">playerPosition</label>
+      <input type="text" id="playerPosition" formControlName="playerPosition"/>
+    </div>
+
+    <div class="form-group">
+      <label for="playerJerseyNumber">playerJerseyNumber</label>
+      <input type="number" id="playerJerseyNumber" formControlName="playerJerseyNumber"/>
+    </div>
+
+    <div class="form-group">
+      <label for="playerAge">playerAge</label>
+      <input type="number" id="playerAge" formControlName="playerAge"/>
+    </div>
+
+    <div class="form-group">
+      <label for="isplayertrophies">isplayertrophies</label>
+      <input type="checkbox" id="isplayertrophies" formControlName="isplayertrophies"/>
+    </div>
+
+   <button type="submit">Submit</button>
+   <button type="button" (click)="ondeleteFootball()">Delete Football</button>
+
+
+
+</form>

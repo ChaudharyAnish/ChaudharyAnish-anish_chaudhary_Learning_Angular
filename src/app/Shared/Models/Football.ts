@@ -1,4 +1,5 @@
 export interface Football{
+  id:number,
   playerName: String,
   playerPosition: String,
   playerJerseyNumber: number,
