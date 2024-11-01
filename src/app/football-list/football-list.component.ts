@@ -3,7 +3,7 @@ import {Football} from "../Shared/Models/Football";
 import {FootballListItemComponent} from "../football-list-item/football-list-item.component";
 import {NgForOf} from "@angular/common";
 import {FootballService} from "../Services/football.service";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-football-list',
@@ -14,10 +14,11 @@ import {RouterLink} from "@angular/router";
   styleUrl: './football-list.component.css'
 })
 export class FootballListComponent implements OnInit {
-  displayedColumns:string[] = ['playerName', 'playerPosition', 'playerJerseyNumber', 'playerAge', 'isplayertrophies'];
+  displayedColumns:string[] = ['id','playerName', 'playerPosition', 'playerJerseyNumber', 'playerAge', 'isplayertrophies'];
   footballs:Football[] = [];
 
-  constructor(private footballService : FootballService) {
+
+  constructor(private footballService : FootballService, private router: Router) {
   }
   ngOnInit() {
     this.footballService.getFootballs().subscribe({
@@ -30,5 +31,10 @@ export class FootballListComponent implements OnInit {
   selectFootball(football:Football):void{
     this.selectedFootball = football;
   }
-
+  deleteFootball(id: number):void{
+    this.footballs = this.footballs.filter(foot => foot.id !== id);
+  }
+  edit(): void{
+    this.router.navigate(['/modify-list-item']);
+  }
 }

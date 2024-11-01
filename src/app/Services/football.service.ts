@@ -13,27 +13,29 @@ export class FootballService {
   getFootballs():Observable<Football[]> {
     return of(footballs);
   }
+  getFootballById(id:number): Observable<Football | undefined>{
+    return of(this.footballList.find(foot => foot.id === id));
+  }
   addFootball(newFootball:Football): Observable<Football[]>{
     this.footballList.push(newFootball)
     return of(this.footballList);
   }
 
   updateFootball(updateFootball:Football): Observable<Football[]>{
-    const index = this.footballList.findIndex(foot => foot.playerName === updateFootball.playerName);
+    const index = this.footballList.findIndex(foot => foot.id === updateFootball.id);
     if (index !== -1){
       this.footballList[index] = updateFootball;
     }
     return of(this.footballList);
   }
 
-  deleteFootball(deleteplayerName: string): Observable<Football[]>{
-    this.footballList = this.footballList.filter(foot => foot.playerName !== deleteplayerName);
-    return of (this.footballList);
+  deleteFootball(id:number):void{
+    this.footballList = this.footballList.filter(foot => foot.id !== id);
   }
-  getFootball(readplayerName:string): Observable<Football | undefined>{
-    const football = this.footballList.find(foot => foot.playerName === readplayerName);
-    return of(football);
+  generateNewId():number{
+    return this.footballList.length >0 ? Math.max(...this.footballList.map(foot =>foot.id)) +1:1;
   }
+
   selectedFootball?: Football;
   selectFootball(football:Football):void{
     this.selectedFootball = football;

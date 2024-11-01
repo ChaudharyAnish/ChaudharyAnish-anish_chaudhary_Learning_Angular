@@ -1,26 +1,13 @@
 <div class="container">
   <h2>Football List Components</h2>
-  <table>
-    <thead>
-    <tr>
-    <th>Name</th>
-    <th>Position</th>
-    <th>JerseyNumber</th>
-    <th>Age</th>
-    <th>Trophies</th>
-    <th>Images</th>
-    </tr>
-    </thead>
-    <tbody>
-  <tr *ngFor="let football of footballs" [routerLink]="['/footballs',football.playerName]">
-    <td>{{football.playerName}}</td>
-    <td>{{football.playerPosition}}</td>
-    <td>{{football.playerJerseyNumber}}</td>
-    <td>{{football.playerAge}}</td>
-    <td>{{football.isplayertrophies ? 'Yes' : 'No'}}</td>
-    <td><img [src]="football.pictureimage"></td>
-  </tr>
-    </tbody>
-</table>
-  <app-football-list-item [footballs]="selectedFootball"></app-football-list-item>
+  <div *ngFor="let football of footballs" [routerLink]="['/footballs',football.playerName]">
+    <p> ID:{{football.id}}</p>
+    <p> playerName: {{football.playerName}}</p>
+    <p> playerPosition: {{football.playerPosition}}</p>
+    <p> playerJerseyNumber:{{football.playerJerseyNumber}}</p>
+    <p>playerAge: {{football.playerAge}}</p>
+    <p> isplayertrophies: {{football.isplayertrophies ? 'Yes' : 'No'}}</p>
+    <button type="button" (click)="deleteFootball(football.id)">Delete Football</button>
+    <button type="button" (click)="edit()">Edit</button>
+  </div>
 </div>
