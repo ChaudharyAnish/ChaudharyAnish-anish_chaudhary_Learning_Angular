@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
 import {Football} from "../Shared/Models/Football";
-import {Observable, of} from "rxjs";
+import {catchError, Observable, throwError} from "rxjs";
 import {footballs} from "../Shared/mockFootball";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FootballService {
+  private apiUrl = 'api/students';
   private footballList : Football[] = footballs;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getFootballs():Observable<Football[]> {
-    return of(footballs);
+    return this.http.get<Football[]>(this.apiUrl).pipe(catchError(this.handleError));
   }
-  getFootballById(id:number): Observable<Football | undefined>{
-    return of(this.footballList.find(foot => foot.id === id));
+  getFootballById(id:number): Observable<Football>{
+    return this.http.get<Football>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError));
   }
-  addFootball(newFootball:Football): Observable<Football[]>{
-    this.footballList.push(newFootball)
-    return of(this.footballList);
-  }
-
-  updateFootball(updateFootball:Football): Observable<Football[]>{
-    const index = this.footballList.findIndex(foot => foot.id === updateFootball.id);
-    if (index !== -1){
-      this.footballList[index] = updateFootball;
-    }
-    return of(this.footballList);
+  addFootball(newFootball:Football): Observable<Football>{
+    newFootball.id = this.generateNewId();
+    return this.http.post<Football>(this.apiUrl, newFootball).pipe(catchError(this.handleError));
   }
 
-  deleteFootball(id:number):void{
-    this.footballList = this.footballList.filter(foot => foot.id !== id);
+  updateFootball(updateFootball:Football): Observable<Football | undefined>{
+    const url = `${this.apiUrl}/${updateFootball.id}`;
+    return this.http.put<Football>(url, updateFootball).pipe(catchError(this.handleError));
+  }
+
+  deleteFootball(id:number):Observable<{}>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url).pipe(catchError(this.handleError));
   }
   generateNewId():number{
     return this.footballList.length >0 ? Math.max(...this.footballList.map(foot =>foot.id)) +1:1;
@@ -39,6 +39,10 @@ export class FootballService {
   selectedFootball?: Football;
   selectFootball(football:Football):void{
     this.selectedFootball = football;
+  }
+  private handleError(error: HttpErrorResponse) {
+    console.error('API error:', error);
+    return throwError(() => new Error('Server error, please try again.'));
   }
 }
 
