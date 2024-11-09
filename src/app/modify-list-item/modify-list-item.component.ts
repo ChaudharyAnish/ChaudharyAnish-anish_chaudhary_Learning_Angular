@@ -31,7 +31,7 @@ export class ModifyListItemComponent implements OnInit{
     private router: Router
   ) {
     this.footballForm = this.formbuilder.group({
-      id:[''],
+      id:[footballService.generateNewId()],
       playerName:['', Validators.required],
       playerPosition:['', Validators.required],
       playerJerseyNumber:[''],
@@ -59,12 +59,10 @@ export class ModifyListItemComponent implements OnInit{
     if(this.footballForm.valid){
       const football: Football = this.footballForm.value;
       if(football.id){
-        this.footballService.updateFootball(football)
-        this.router.navigate(['/footballs']);
+        this.footballService.updateFootball(football).subscribe(() => this.router.navigate(['/footballs']));
       }else{
         football.id = this.footballService.generateNewId();
-        this.footballService.addFootball(football)
-        this.router.navigate(['/footballs']);
+        this.footballService.addFootball(football).subscribe(() => this.router.navigate(['/footballs']));
       }
     }
   }

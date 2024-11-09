@@ -7,3 +7,4 @@
     <p>Age: {{footballs.playerAge}}</p>
     <p>Player Trophies: {{ footballs.isplayertrophies ? 'Yes' : 'No' }}</p>
 </div>
+<div *ngIf="error" class="error">{{ error }}</div>

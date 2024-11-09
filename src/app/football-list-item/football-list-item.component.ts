@@ -1,17 +1,50 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Football} from "../Shared/Models/Football";
-import {NgIf} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
+import {ActivatedRoute, Router} from "@angular/router";
+import {FootballService} from "../Services/football.service";
+import {footballs} from "../Shared/mockFootball";
 
 @Component({
   selector: 'app-football-list-item',
   standalone: true,
   imports: [
+    NgOptimizedImage,
     NgIf
   ],
   templateUrl: './football-list-item.component.html',
   styleUrl: './football-list-item.component.css'
 })
-export class FootballListItemComponent {
-  @Input() footballs?: Football;
+export class FootballListItemComponent implements OnInit{
+  footballs: Football | undefined;
+  footballList: Football[] = [];
+  currentIndex: number=0;
+  error: string |null=null;
+
+  constructor(
+    private route: ActivatedRoute,
+    private footballService: FootballService,
+    private router: Router)
+  {}
+
+  ngOnInit(): void {this.footballService.getFootballs().subscribe({
+    next:(data: Football[]) => {
+      this.footballList = data;
+      this.error = null;
+
+      this.route.paramMap.subscribe(anishs =>{
+        const id = Number(anishs.get('id'));
+        if (id){
+          this.currentIndex = this.footballList.findIndex(users => users.id === id);
+          this.footballs = this.footballList[this.currentIndex];
+        }
+      });
+    },
+    error: (err) => {
+      this.error = 'Error fetching football';
+      console.log('Error fetching football', err)
+    }
+  })
+  }
 
 }

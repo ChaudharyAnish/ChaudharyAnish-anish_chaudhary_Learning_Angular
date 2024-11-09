@@ -1,31 +1,38 @@
 import {Component, OnInit} from '@angular/core';
 import {Football} from "../Shared/Models/Football";
 import {FootballListItemComponent} from "../football-list-item/football-list-item.component";
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {FootballService} from "../Services/football.service";
 import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-football-list',
   standalone: true,
-  imports: [NgForOf, FootballListItemComponent, RouterLink,
-  ],
+  imports: [NgForOf, FootballListItemComponent, RouterLink,NgIf, NgClass],
   templateUrl: './football-list.component.html',
   styleUrl: './football-list.component.css'
 })
 export class FootballListComponent implements OnInit {
   displayedColumns:string[] = ['id','playerName', 'playerPosition', 'playerJerseyNumber', 'playerAge', 'isplayertrophies'];
   footballs:Football[] = [];
+  error:string | null=null;
 
 
   constructor(private footballService : FootballService, private router: Router) {
   }
   ngOnInit() {
     this.footballService.getFootballs().subscribe({
-      next: (data: Football[]) => this.footballs = data,
-      error: err => console.log("Error fetching Footballs", err),
+      next: (data: Football[]) => {
+        this.footballs = data,
+          this.error = null;
+      },
+
+      error: err => {
+        this.error = "Error fetching Footballs";
+        console.log("Footballs data fetching completed", err);
+      },
       complete:() => console.log("Football data fetch complete")
-    })
+    });
   }
   selectedFootball?: Football;
   selectFootball(football:Football):void{

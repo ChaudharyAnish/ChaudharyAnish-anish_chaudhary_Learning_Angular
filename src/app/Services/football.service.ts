@@ -8,7 +8,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
   providedIn: 'root'
 })
 export class FootballService {
-  private apiUrl = 'api/students';
+  private apiUrl = 'api/footballs';
   private footballList : Football[] = footballs;
 
   constructor(private http: HttpClient) { }
