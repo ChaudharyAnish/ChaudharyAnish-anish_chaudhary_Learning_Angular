@@ -15,9 +15,15 @@ import {importProvidersFrom} from "@angular/core";
 const routes: Routes = [
   {path:'', redirectTo: '/footballs', pathMatch: 'full'},
   {path:'footballs', component: FootballListComponent},
-  {path:'footballs/:playerName', component: FootballListItemComponent},
-  {path:'modify-list-item', component: ModifyListItemComponent},
-  {path:'**', component: PageNotFoundComponent}
+  {path:'footballs/:playerName',
+    loadComponent: () =>
+      import('./app/football-list-item/football-list-item.component'). then(m=>m.FootballListItemComponent)},
+  {path:'modify-list-item',
+  loadComponent: ()=>
+  import('./app/modify-list-item/modify-list-item.component').then(m=>m.ModifyListItemComponent)},
+  {path:'**',
+  loadComponent: ()=>
+  import('./app/page-not-found/page-not-found.component').then(m=>m.PageNotFoundComponent)},
 ]
 bootstrapApplication(AppComponent, {
   providers: [
