@@ -1,10 +1,11 @@
 export interface Football{
   id:number,
-  playerName: String,
-  playerPosition: String,
+  playerName: string,
+  playerPosition: string,
   playerJerseyNumber: number,
-  playerAge: number;
+  playerAge: string;
   isplayertrophies? :boolean,
   pictureimage: string,
+  budget:number
 
 }

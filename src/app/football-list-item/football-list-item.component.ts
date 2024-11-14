@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Football} from "../Shared/Models/Football";
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe, NgIf, NgOptimizedImage} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FootballService} from "../Services/football.service";
 import {footballs} from "../Shared/mockFootball";
@@ -10,7 +10,8 @@ import {footballs} from "../Shared/mockFootball";
   standalone: true,
   imports: [
     NgOptimizedImage,
-    NgIf
+    NgIf,
+    CurrencyPipe
   ],
   templateUrl: './football-list-item.component.html',
   styleUrl: './football-list-item.component.css'

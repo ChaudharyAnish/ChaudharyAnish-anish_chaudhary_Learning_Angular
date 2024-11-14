@@ -6,5 +6,6 @@
     <p>Jersey Number: {{footballs.playerJerseyNumber}}</p>
     <p>Age: {{footballs.playerAge}}</p>
     <p>Player Trophies: {{ footballs.isplayertrophies ? 'Yes' : 'No' }}</p>
+    <p>Budget: {{footballs.budget | currency: 'CAD':"symbol-narrow"}}</p>
 </div>
 <div *ngIf="error" class="error">{{ error }}</div>
