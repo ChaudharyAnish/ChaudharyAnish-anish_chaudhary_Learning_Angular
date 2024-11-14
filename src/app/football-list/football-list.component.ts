@@ -4,11 +4,12 @@ import {FootballListItemComponent} from "../football-list-item/football-list-ite
 import {CurrencyPipe, LowerCasePipe, NgClass, NgForOf, NgIf, UpperCasePipe} from "@angular/common";
 import {FootballService} from "../Services/football.service";
 import {Router, RouterLink} from "@angular/router";
+import {FullnamePipe} from "../pipes/fullname.pipe";
 
 @Component({
   selector: 'app-football-list',
   standalone: true,
-  imports: [NgForOf, FootballListItemComponent, RouterLink, NgIf, NgClass, CurrencyPipe, LowerCasePipe, UpperCasePipe],
+  imports: [NgForOf, FootballListItemComponent, RouterLink, NgIf, NgClass, CurrencyPipe, LowerCasePipe, UpperCasePipe, FullnamePipe],
   templateUrl: './football-list.component.html',
   styleUrl: './football-list.component.css'
 })
