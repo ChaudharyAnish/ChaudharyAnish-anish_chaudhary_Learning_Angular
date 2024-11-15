@@ -13,7 +13,7 @@ import {FootballService} from "./Services/football.service";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = "Assignment 4 Football- Anish Chaudhary";
+  title = "Assignment Football- Anish Chaudhary";
   displayedColumns:string[] = ['playerName', 'playerPosition', 'playerJerseyNumber', 'playerAge', 'isplayertrophies'];
   footballs:Football[] = [];
 

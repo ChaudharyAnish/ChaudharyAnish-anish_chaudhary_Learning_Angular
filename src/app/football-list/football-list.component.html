@@ -7,7 +7,7 @@
     <p> playerJerseyNumber:{{football.playerJerseyNumber}}</p>
     <p>playerAge: {{football.playerAge | uppercase}}</p>
     <p> isplayertrophies: {{football.isplayertrophies ? 'Yes' : 'No'}}</p>
-    <p>{{football.budget | currency: 'CAD': "symbol-narrow"}}</p>
+    <p>{{football.budget | currency: 'CAD': "symbol"}}</p>
     <button type="button" (click)="deleteFootball(football.id)">Delete Football</button>
     <button type="button" (click)="edit()">Edit</button>
   </div>
