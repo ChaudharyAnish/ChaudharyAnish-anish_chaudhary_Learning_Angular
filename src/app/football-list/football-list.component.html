@@ -1,9 +1,8 @@
 <div class="container">
   <h2>Football List Components</h2>
-  <div *ngFor="let football of footballs" [routerLink]="['/footballs',football.playerName]">
+  <div *ngFor="let football of footballs" [routerLink]="['/footballs',football.id]">
     <p> ID:{{football.id}}</p>
-    <p> playerName: {{football | fullname}}</p>
-    <p> playerPosition: {{football.playerPosition | lowercase}}</p>
+    <p> playerName: {{football | namePosition| titlecase}}</p>
     <p> playerJerseyNumber:{{football.playerJerseyNumber}}</p>
     <p>playerAge: {{football.playerAge | uppercase}}</p>
     <p> isplayertrophies: {{football.isplayertrophies ? 'Yes' : 'No'}}</p>

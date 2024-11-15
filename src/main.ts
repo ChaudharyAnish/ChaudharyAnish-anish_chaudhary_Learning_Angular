@@ -15,7 +15,7 @@ import {importProvidersFrom} from "@angular/core";
 const routes: Routes = [
   {path:'', redirectTo: '/footballs', pathMatch: 'full'},
   {path:'footballs', component: FootballListComponent},
-  {path:'footballs/:playerName',
+  {path:'footballs/:id',
     loadComponent: () =>
       import('./app/football-list-item/football-list-item.component'). then(m=>m.FootballListItemComponent)},
   {path:'modify-list-item',
@@ -29,7 +29,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(), // Ensure that HTTP interceptors are properly configured
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })) // Import providers dynamically
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1 })) // Import providers dynamically
   ],
 }).catch((err) => console.error(err));
 

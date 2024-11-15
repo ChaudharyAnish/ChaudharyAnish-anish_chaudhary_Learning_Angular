@@ -1,10 +1,9 @@
 <div *ngIf="footballs" class ="Football-list-item" >
   <h2>Football List</h2>
     <p>{{footballs.id}}</p>
-    <p>{{ footballs.playerName }}</p>
-    <p>Position: {{footballs.playerPosition}}</p>
+    <p>{{ footballs | namePosition | titlecase }}</p>
     <p>Jersey Number: {{footballs.playerJerseyNumber}}</p>
-    <p>Age: {{footballs.playerAge}}</p>
+    <p>Age: {{footballs.playerAge | uppercase}}</p>
     <p>Player Trophies: {{ footballs.isplayertrophies ? 'Yes' : 'No' }}</p>
     <p>Budget: {{footballs.budget | currency: 'CAD':"symbol"}}</p>
 </div>

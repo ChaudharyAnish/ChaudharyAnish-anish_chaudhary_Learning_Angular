@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Football} from "../Shared/Models/Football";
-import {CurrencyPipe, NgIf, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe, NgIf, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FootballService} from "../Services/football.service";
 import {footballs} from "../Shared/mockFootball";
+import {NamePositionPipe} from "../pipes/name-position.pipe";
 
 @Component({
   selector: 'app-football-list-item',
@@ -11,7 +12,10 @@ import {footballs} from "../Shared/mockFootball";
   imports: [
     NgOptimizedImage,
     NgIf,
-    CurrencyPipe
+    CurrencyPipe,
+    NamePositionPipe,
+    TitleCasePipe,
+    UpperCasePipe
   ],
   templateUrl: './football-list-item.component.html',
   styleUrl: './football-list-item.component.css'
