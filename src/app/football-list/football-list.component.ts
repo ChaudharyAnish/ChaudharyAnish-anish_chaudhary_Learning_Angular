@@ -5,11 +5,12 @@ import {CurrencyPipe, LowerCasePipe, NgClass, NgForOf, NgIf, TitleCasePipe, Uppe
 import {FootballService} from "../Services/football.service";
 import {Router, RouterLink} from "@angular/router";
 import {NamePositionPipe} from "../pipes/name-position.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-football-list',
   standalone: true,
-  imports: [NgForOf, FootballListItemComponent, RouterLink, NgIf, NgClass, CurrencyPipe, LowerCasePipe, UpperCasePipe, TitleCasePipe, NamePositionPipe],
+  imports: [NgForOf, FootballListItemComponent, RouterLink, NgIf, NgClass, CurrencyPipe, LowerCasePipe, UpperCasePipe, TitleCasePipe, NamePositionPipe, HoverHighlightDirective],
   templateUrl: './football-list.component.html',
   styleUrl: './football-list.component.css'
 })
