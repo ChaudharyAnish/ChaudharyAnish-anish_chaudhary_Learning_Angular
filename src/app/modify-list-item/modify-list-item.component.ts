@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {ActivatedRoute, Router} from "@angular/router";
 import {FootballService} from "../Services/football.service";
 import {NgForOf, NgIf} from "@angular/common";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 
 @Component({
@@ -13,7 +14,8 @@ import {NgForOf, NgIf} from "@angular/common";
     FormsModule,
     ReactiveFormsModule,
     NgIf,
-    NgForOf
+    NgForOf,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.scss'
