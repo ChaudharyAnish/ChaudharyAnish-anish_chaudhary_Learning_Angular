@@ -1,37 +1,44 @@
-<form [formGroup]="footballForm" (ngSubmit)= "onSubmit()">
+<form [formGroup]="footballForm" (ngSubmit)="onSubmit()" class="mat-form">
+  <!-- Player ID -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>ID</mat-label>
+    <input matInput type="number" formControlName="id" [appHighlightOnFocus]="'pink'"/>
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input type="number" id="id" formControlName="id" [appHighlightOnFocus]="'pink'"/>
-    </div>
+  <!-- Player Name -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Player Name</mat-label>
+    <input matInput type="text" formControlName="playerName" [appHighlightOnFocus]="'pink'" />
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="playerName">playerName</label>
-      <input type="text" id="playerName" formControlName="playerName" [appHighlightOnFocus]="'pink'"/>
-    </div>
+  <!-- Player Position -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Player Position</mat-label>
+    <input matInput type="text" formControlName="playerPosition" [appHighlightOnFocus]="'pink'" />
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="playerPosition">playerPosition</label>
-      <input type="text" id="playerPosition" formControlName="playerPosition" [appHighlightOnFocus]="'pink'"/>
-    </div>
+  <!-- Player Jersey Number -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Player Jersey Number</mat-label>
+    <input matInput type="number" formControlName="playerJerseyNumber" [appHighlightOnFocus]="'pink'" />
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="playerJerseyNumber">playerJerseyNumber</label>
-      <input type="number" id="playerJerseyNumber" formControlName="playerJerseyNumber" [appHighlightOnFocus]="'pink'"/>
-    </div>
+  <!-- Player Age -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Player Age</mat-label>
+    <input matInput type="number" formControlName="playerAge" [appHighlightOnFocus]="'pink'" />
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="playerAge">playerAge</label>
-      <input type="number" id="playerAge" formControlName="playerAge" [appHighlightOnFocus]="'pink'"/>
-    </div>
+  <!-- Player Trophies Toggle -->
+  <mat-slide-toggle labelPosition="before" formControlName="isPlayerTrophies" class="checkbox">
+    Has Trophies
+  </mat-slide-toggle>
 
-    <div class="form-group">
-      <label for="isplayertrophies">isplayertrophies</label>
-      <input type="checkbox" id="isplayertrophies" formControlName="isplayertrophies" [appHighlightOnFocus]="'pink'"/>
-    </div>
+  <!-- Submit Button -->
+  <div class="button-group">
+    <button mat-raised-button color="primary" type="submit" [appHighlightOnFocus]="'pink'">Submit</button>
+  </div>
 
-   <button type="submit">Submit</button>
-
-
+  <!-- Error Message -->
+  <div *ngIf="error" class="error mat-error">{{ error }}</div>
 </form>
-<div *ngIf="error" class="error">{{ error }}</div>

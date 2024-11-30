@@ -1,10 +1,15 @@
 <div *ngIf="footballs" class ="Football-list-item" >
-  <h2>Football List</h2>
-    <p>{{footballs.id}}</p>
-    <p>{{ footballs | namePosition | titlecase }}</p>
-    <p>Jersey Number: {{footballs.playerJerseyNumber}}</p>
-    <p>Age: {{footballs.playerAge | uppercase}}</p>
-    <p>Player Trophies: {{ footballs.isplayertrophies ? 'Yes' : 'No' }}</p>
-    <p>Budget: {{footballs.budget | currency: 'CAD':"symbol"}}</p>
+  <mat-card class="football-card">
+    <mat-card-title class="title">Football Team</mat-card-title>
+      <mat-card-subtitle>Football List</mat-card-subtitle>
+      <mat-card-content [appHoverHighlight]="'lightblue'"> ID: {{footballs.id}}</mat-card-content>
+      <mat-card-content [appHoverHighlight]="'lightblue'">Player Name: {{ footballs | namePosition | titlecase }}</mat-card-content>
+      <mat-card-content [appHoverHighlight]="'lightblue'">Jersey Number: {{footballs.playerJerseyNumber}}</mat-card-content>
+      <mat-card-content [appHoverHighlight]="'lightblue'">Age: {{footballs.playerAge | uppercase}}</mat-card-content>
+      <mat-card-content [appHoverHighlight]="'lightblue'">Player Trophies: {{ footballs.isplayertrophies ? 'Yes' : 'No' }}</mat-card-content>
+      <mat-card-content [appHoverHighlight]="'lightblue'">Budget: {{footballs.budget | currency: 'CAD':"symbol"}}</mat-card-content>
+  </mat-card>
 </div>
-<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="error" mat-card class="error-card">
+  <mat-card-content>{{ error }}</mat-card-content>
+</div>

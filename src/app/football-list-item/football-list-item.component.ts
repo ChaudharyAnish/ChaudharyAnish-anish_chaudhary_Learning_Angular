@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FootballService} from "../Services/football.service";
 import {footballs} from "../Shared/mockFootball";
 import {NamePositionPipe} from "../pipes/name-position.pipe";
+import {MatCard, MatCardContent, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-football-list-item',
@@ -15,10 +17,15 @@ import {NamePositionPipe} from "../pipes/name-position.pipe";
     CurrencyPipe,
     NamePositionPipe,
     TitleCasePipe,
-    UpperCasePipe
+    UpperCasePipe,
+    MatCard,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    HoverHighlightDirective
   ],
-  templateUrl: './football-list-item.component.html',
-  styleUrl: './football-list-item.component.css'
+  templateUrl:'./football-list-item.component.html',
+  styleUrl:'./football-list-item.component.css'
 })
 export class FootballListItemComponent implements OnInit{
   footballs: Football | undefined;

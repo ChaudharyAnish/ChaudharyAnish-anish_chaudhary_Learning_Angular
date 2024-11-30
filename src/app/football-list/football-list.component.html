@@ -1,14 +1,17 @@
 <div class="container">
   <h2>Football List Components</h2>
-  <div *ngFor="let football of footballs" [routerLink]="['/footballs',football.id]">
-    <p [appHoverHighlight]="'lightblue'" > ID:{{football.id}}</p>
-    <p [appHoverHighlight]="'lightblue'"> playerName: {{football | namePosition| titlecase}}</p>
-    <p [appHoverHighlight]="'lightblue'"> playerJerseyNumber:{{football.playerJerseyNumber}}</p>
-    <p [appHoverHighlight]="'lightblue'">playerAge: {{football.playerAge | uppercase}}</p>
-    <p [appHoverHighlight]="'lightblue'"> isplayertrophies: {{football.isplayertrophies ? 'Yes' : 'No'}}</p>
-    <p [appHoverHighlight]="'lightblue'">{{football.budget | currency: 'CAD': "symbol"}}</p>
-    <button type="button" (click)="deleteFootball(football.id)" [appHoverHighlight]="'lightblue'">Delete Football</button>
-    <button type="button" (click)="edit()" [appHoverHighlight]="'lightblue'">Edit</button>
-  </div>
+  <mat-list class="football" *ngFor="let football of footballs" [routerLink]="['/footballs',football.id]">
+    <mat-list-item [appHoverHighlight]="'lightblue'" role="listitem" > ID:{{football.id}}</mat-list-item>
+    <mat-list-item [appHoverHighlight]="'lightblue'"> playerName: {{football | namePosition| titlecase}}</mat-list-item>
+    <mat-list-item [appHoverHighlight]="'lightblue'"> playerJerseyNumber:{{football.playerJerseyNumber}}</mat-list-item>
+    <mat-list-item [appHoverHighlight]="'lightblue'">playerAge: {{football.playerAge | uppercase}}</mat-list-item>
+    <mat-list-item [appHoverHighlight]="'lightblue'"> isplayertrophies: {{football.isplayertrophies ? 'Yes' : 'No'}}</mat-list-item>
+    <mat-list-item [appHoverHighlight]="'lightblue'">{{football.budget | currency: 'CAD': "symbol"}}</mat-list-item>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="button"(click)="deleteFootball(football.id)" [appHoverHighlight]="'lightblue'">Delete Football</button>
+      <button mat-raised-button color="primary" type="button"(click)="edit()" [appHoverHighlight]="'lightblue'">Edit</button>
+    </div>
+  </mat-list>
+    <div *ngIf="error" class="error mat-error">{{ error }}</div>
 </div>
-<div *ngIf="error" class="error">{{ error }}</div>

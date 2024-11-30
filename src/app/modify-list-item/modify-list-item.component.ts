@@ -5,20 +5,29 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FootballService} from "../Services/football.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {MatSlideToggle} from "@angular/material/slide-toggle";
+import {MatButton} from "@angular/material/button";
 
 
 @Component({
-  selector: 'app-modify-list-item',
+  selector:'app-modify-list-item',
   standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
     NgIf,
     NgForOf,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatLabel,
+    MatFormField,
+    MatInput,
+    MatSlideToggle,
+    MatButton
   ],
-  templateUrl: './modify-list-item.component.html',
-  styleUrl: './modify-list-item.component.scss'
+  templateUrl:'./modify-list-item.component.html',
+  styleUrl:'./modify-list-item.component.scss'
 })
 export class ModifyListItemComponent implements OnInit{
   footballForm: FormGroup;
