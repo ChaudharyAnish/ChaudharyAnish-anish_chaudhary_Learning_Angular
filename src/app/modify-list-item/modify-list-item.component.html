@@ -1,44 +1,42 @@
 <form [formGroup]="footballForm" (ngSubmit)="onSubmit()" class="mat-form">
-  <!-- Player ID -->
+
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>ID</mat-label>
-    <input matInput type="number" formControlName="id" [appHighlightOnFocus]="'pink'"/>
+    <input matInput type="number" formControlName="id" [appHighlightOnFocus]="'pink'" matTooltip="Please enter the Id in this Field."/>
   </mat-form-field>
 
-  <!-- Player Name -->
+
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Player Name</mat-label>
-    <input matInput type="text" formControlName="playerName" [appHighlightOnFocus]="'pink'" />
+    <input matInput type="text" formControlName="playerName" [appHighlightOnFocus]="'pink'" matTooltip="Please enter the Player Name in this Field."/>
   </mat-form-field>
 
-  <!-- Player Position -->
+
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Player Position</mat-label>
-    <input matInput type="text" formControlName="playerPosition" [appHighlightOnFocus]="'pink'" />
+    <input matInput type="text" formControlName="playerPosition" [appHighlightOnFocus]="'pink'" matTooltip="Please enter the Player Position in this Field." />
   </mat-form-field>
 
-  <!-- Player Jersey Number -->
+
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Player Jersey Number</mat-label>
-    <input matInput type="number" formControlName="playerJerseyNumber" [appHighlightOnFocus]="'pink'" />
+    <input matInput type="number" formControlName="playerJerseyNumber" [appHighlightOnFocus]="'pink'" matTooltip="Please enter the Player Jersey Number in this Field."/>
   </mat-form-field>
 
-  <!-- Player Age -->
+
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Player Age</mat-label>
-    <input matInput type="number" formControlName="playerAge" [appHighlightOnFocus]="'pink'" />
+    <input matInput type="number" formControlName="playerAge" [appHighlightOnFocus]="'pink'" matTooltip="Please enter the Player Age in this Field."/>
   </mat-form-field>
 
-  <!-- Player Trophies Toggle -->
-  <mat-slide-toggle labelPosition="before" formControlName="isPlayerTrophies" class="checkbox">
-    Has Trophies
-  </mat-slide-toggle>
 
-  <!-- Submit Button -->
+  <mat-slide-toggle labelPosition="before" formControlName="isPlayerTrophies" class="checkbox" >isPlayerTrophies</mat-slide-toggle>
+
+
   <div class="button-group">
     <button mat-raised-button color="primary" type="submit" [appHighlightOnFocus]="'pink'">Submit</button>
   </div>
 
-  <!-- Error Message -->
+
   <div *ngIf="error" class="error mat-error">{{ error }}</div>
 </form>

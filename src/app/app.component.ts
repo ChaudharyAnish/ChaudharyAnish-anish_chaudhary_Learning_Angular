@@ -5,10 +5,12 @@ import {Football} from "./Shared/Models/Football";
 import {FootballListComponent} from "./football-list/football-list.component";
 import {FootballListItemComponent} from "./football-list-item/football-list-item.component";
 import {FootballService} from "./Services/football.service";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatButton} from "@angular/material/button";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, FootballListComponent, FootballListItemComponent, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, NgForOf, JsonPipe, FootballListComponent, FootballListItemComponent, RouterLink, RouterLinkActive, MatToolbar, MatButton],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

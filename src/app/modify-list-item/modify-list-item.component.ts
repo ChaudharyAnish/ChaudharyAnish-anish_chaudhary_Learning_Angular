@@ -9,6 +9,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {MatButton} from "@angular/material/button";
+import {MatTooltip} from "@angular/material/tooltip";
 
 
 @Component({
@@ -24,7 +25,8 @@ import {MatButton} from "@angular/material/button";
     MatFormField,
     MatInput,
     MatSlideToggle,
-    MatButton
+    MatButton,
+    MatTooltip
   ],
   templateUrl:'./modify-list-item.component.html',
   styleUrl:'./modify-list-item.component.scss'

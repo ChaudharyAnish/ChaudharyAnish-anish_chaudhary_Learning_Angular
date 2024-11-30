@@ -1,10 +1,12 @@
-<div class="nav-bar">
-  <nav>
-    <a routerLink="/footballs" routerLinkActive="active">Football List</a>
-    <a routerLink="/modify-list-item" routerLinkActive="active">Modify Football</a>
-  </nav>
-</div>
+<mat-toolbar color="primary">
+  <span>Football Team Management</span>
+  <span class="nav-bar"></span>
+  <button mat-button routerLink="/footballs" routerLinkActive="active">Football List</button>
+  <button mat-button routerLink="/modify-list-item" routerLinkActive="active">Modify Football</button>
+</mat-toolbar>
+
 <div class="container">
-  <h1>{{title}}</h1>
+  <h1>{{ title }}</h1>
   <router-outlet></router-outlet>
 </div>
+
